@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.UserMapper">
+
+
+    <resultMap id="BaseResultMap" type="com.example.demo.domain.SysUser">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="userName" property="username" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="create_date" property="createDate" jdbcType="DATE"/>
+        <result column="accountNonExpired" property="accountNonExpired" jdbcType="INTEGER"/>
+        <result column="accountNonLocked" property="accountNonLocked" jdbcType="INTEGER"/>
+        <result column="credentialsNonExpired" property="credentialsNonExpired" jdbcType="INTEGER"/>
+        <result column="enabled" property="enabled" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="selectByUserName" resultType="com.example.demo.domain.SysUser">
+        SELECT * FROM `sys_user` where userName = #{userName}
+    </select>
+
+    <select id="findPreMissionByUserName" resultType="java.lang.String">
+        SELECT
+	    premission.premission
+        FROM
+            sys_user
+            AS USER INNER JOIN sys_user_role AS userrole ON USER.id = userrole.userId
+            INNER JOIN sys_role AS role ON userrole.roleId = role.id
+            INNER JOIN role_premission AS rpremission ON role.id = rpremission.roleId
+            INNER JOIN premission ON rpremission.premissionId = premission.id
+        WHERE
+	username = #{username}
+    </select>
+
+</mapper>

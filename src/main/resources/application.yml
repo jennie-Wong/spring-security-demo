@@ -1,0 +1,46 @@
+# application.yml
+
+spring:
+  application:
+    name: security-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/securityCC?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
+    username: root
+    password: 1234
+   # driver-class-name: com.mysql.jdbc.Driver
+  security:
+    filter:
+      order: 3
+  redis:
+    database: 1
+    host: localhost
+    port: 6379
+    pool:
+
+server:
+  port: 8081
+  spring:
+  servlet:
+    session:
+      timeout: 60s
+
+
+
+
+mybatis:
+    type-aliases-package: com.example.demo.domain
+    mapper-locations: classpath:mapper/*.xml
+
+
+
+## redis
+#spring.redis.host=10.5.30.124
+#spring.redis.port=6379
+#spring.redis.password=markorredis
+#spring.redis.database=1
+#spring.redis.pool.max-active=8
+#spring.redis.pool.max-wait=-1
+#spring.redis.pool.max-idle=500
+#spring.redis.pool.min-idle=0
+#spring.redis.timeout=6000
+#spring.data.redis.repositories.enabled=false
