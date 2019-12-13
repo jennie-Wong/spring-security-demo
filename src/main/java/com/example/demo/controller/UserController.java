@@ -39,8 +39,8 @@ public class UserController {
 		SysUser sysUser =new SysUser();
 
 		sysUser.setPassword("123456");
-		sysUser.setAccountNonLocked(false);
-		sysUser.setAccountNonExpired(false);
+		sysUser.setAccountnonexpired(false);
+		sysUser.setAccountnonexpired(false);
 		//加密密码
 		String newPwd = passwordEncoder.encode(sysUser.getPassword());
 

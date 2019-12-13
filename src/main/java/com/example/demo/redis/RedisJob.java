@@ -35,8 +35,7 @@ public class RedisJob {
 		//把所有的user加载进来
 
 
-		List<SysUser> list=null;
-				//userMapper.selectAll();
+		List<SysUser> list=userMapper.selectAll();
 		redisUtil.setKeyTimes("allUser",list.toString(),10L,TimeUnit.MINUTES);
 		System.out.println("=========定时任务执行=========="+i++);
 	}

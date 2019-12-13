@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 引入配置文件 -->
+    <!--<properties resource="init.properties"/>-->
+    <!-- 一个数据库一个context -->
+    <context id="my" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- jdbc连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/securityCC?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;allowMultiQueries=true&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=GMT%2B8
+"
+
+
+        userId="root"
+                        password="1234">
+        </jdbcConnection>
+
+        <!-- 生成实体类地址 -->
+        <javaModelGenerator targetPackage="com.example.demo.domain"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 生成mapper文件 -->
+        <sqlMapGenerator targetPackage="mapper1"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成mapxml文件 -->
+        <javaClientGenerator targetPackage="com.example.demo.mapper1"
+                             targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 配置表信息 -->
+        <!--下面你可以重复添加对应多个表-->
+        <!--后面选项：是否生成 example类 -->
+        <!--table标签对应数据库中的table表，这里是一个名称为professional的数据表，tableName与数据库中的表名对应 -->
+        <table tableName="sys_user" domainObjectName="SysUser" enableUpdateByExample="false"
+               enableDeleteByExample="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+    </context>
+</generatorConfiguration>

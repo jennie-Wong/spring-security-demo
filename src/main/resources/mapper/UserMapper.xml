@@ -2,16 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.mapper.UserMapper">
 
-
     <resultMap id="BaseResultMap" type="com.example.demo.domain.SysUser">
-        <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="userName" property="username" jdbcType="VARCHAR"/>
-        <result column="password" property="password" jdbcType="VARCHAR"/>
-        <result column="create_date" property="createDate" jdbcType="DATE"/>
-        <result column="accountNonExpired" property="accountNonExpired" jdbcType="INTEGER"/>
-        <result column="accountNonLocked" property="accountNonLocked" jdbcType="INTEGER"/>
-        <result column="credentialsNonExpired" property="credentialsNonExpired" jdbcType="INTEGER"/>
-        <result column="enabled" property="enabled" jdbcType="INTEGER"/>
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="create_date" jdbcType="DATE" property="createDate" />
+        <result column="accountNonExpired" jdbcType="INTEGER" property="accountnonexpired" />
+        <result column="accountNonLocked" jdbcType="INTEGER" property="accountnonlocked" />
+        <result column="credentialsNonExpired" jdbcType="INTEGER" property="credentialsnonexpired" />
+        <result column="enabled" jdbcType="INTEGER" property="enabled" />
     </resultMap>
 
     <select id="selectByUserName" resultType="com.example.demo.domain.SysUser">
